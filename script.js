@@ -7,12 +7,11 @@ const answerbtnsEl = document.getElementById("answer-buttons");
 
 var timerText = document.querySelector(".timer-text");
 var score = 0;
+var timer = 0;
 let mixQuestions, currentQIndex;
-
 
 startButton.addEventListener("click", startGame);
 startTimer();
-
 
 function startTimer() {
   console.log("testing timer");
@@ -27,53 +26,56 @@ function startTimer() {
   }, 1000);
 }
 
-
 function startGame() {
+  timer = 60;
+  startTimer();
+  timerText.innerHTML = timer;
 console.log("started");
 startButton.classList.add("hide");
-mixQuestions = questions.sort(() => Math.random() - .5);
+mixQuestions = questions.sort(() => Math.random() - 0.5);
+console.log(mixQuestions);
 currentQIndex = 0;
 questionContainerEl.classList.remove("hide");
 setNextQuestion();
 }
 
-
 function setNextQuestion() {
-    resetCard()
-    showQuestion(mixQuestions[currentQIndex]);
+  resetCard();
+  console.log(mixQuestions[currentQIndex]);
+  showQuestion(mixQuestions[currentQIndex]);
+  console.log(showQuestion());
 } 
 
-function showQuestion(question) {
-    questionEl.innerHTML = question.question;
-    question.answers.forEach((answer) => {
+function showQuestion(questionObj) {
+  questionEl.innerHTML = questionObj.question;
+  questionObj.answers.forEach((answer) => {
     const button = document.createElement("button");
-    button.innertext = answer.text;
+    button.innerText = answer;
     button.classList.add("btn");
-    if (answer.correct) {
-        button.dataset.correct = answer.correct;
+      if (answer == questionObj.correct) {
+          console.log("correct");
+      button.style.backgroundColor = "green";
+      button.addEventListener("click", correctButton());
     }
-    button.addEventListener("click", selectAnswer);
-    answerbtnsEl.appendChild(button);
+    // button.addEventListener("click", selectAnswer);
+    // answerbtnsEl.appendChild(button);
   });
 }
 
+function correctButton() {
+  score++;
+  console.log(score);
+}
+
 function resetCard() {
-    nextButton.classList.add("hide");
-    while (answerbtnsEl.firstChild) {
-        answerbtnsEl.removeChild
-        (answerbtnsEl.firstChild)
-    }
+  nextButton.classList.add("hide");
+  while (answerbtnsEl.firstChild) {
+    answerbtnsEl.removeChild(answerbtnsEl.firstChild);
+  }
 }
 
-function selectAnswer(event) {
-  const selectedButton = event.target;
+// function selectAnswer(event) {
+//   const selectedButton = event.target;
+// }
 
-}
-
-function endGame() {
-    
-}
-
-
-
-
+function endGame() {}
