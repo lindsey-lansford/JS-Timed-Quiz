@@ -6,12 +6,16 @@ const questionEl = document.getElementById("question");
 const answerbtnsEl = document.getElementById("answer-buttons");
 
 var timerText = document.querySelector(".timer-text");
-var score = 0;
 var timer = 0;
-let mixQuestions, currentQIndex;
+var scoreText = document.querySelector(".score-text");
+var score = 0;
+
+let mixQuestions
+let currentQIndex = 0
 
 startButton.addEventListener("click", startGame);
-startTimer();
+
+
 
 function startTimer() {
   console.log("testing timer");
@@ -32,33 +36,38 @@ function startGame() {
   timerText.innerHTML = timer;
 console.log("started");
 startButton.classList.add("hide");
-mixQuestions = questions.sort(() => Math.random() - 0.5);
+  mixQuestions = questions;
 console.log(mixQuestions);
-currentQIndex = 0;
 questionContainerEl.classList.remove("hide");
 setNextQuestion();
 }
 
 function setNextQuestion() {
   resetCard();
-  console.log(mixQuestions[currentQIndex]);
+  console.log(currentQIndex)
   showQuestion(mixQuestions[currentQIndex]);
-  console.log(showQuestion());
-} 
+    currentQIndex++;
+
+}
 
 function showQuestion(questionObj) {
-  questionEl.innerHTML = questionObj.question;
+  console.log(questionObj)
+    questionEl.innerHTML = questionObj.question;
   questionObj.answers.forEach((answer) => {
     const button = document.createElement("button");
     button.innerText = answer;
     button.classList.add("btn");
-      if (answer == questionObj.correct) {
-          console.log("correct");
-      button.style.backgroundColor = "green";
-      button.addEventListener("click", correctButton());
-    }
-    // button.addEventListener("click", selectAnswer);
-    // answerbtnsEl.appendChild(button);
+    button.addEventListener("click", selectAnswer);
+    answerbtnsEl.appendChild(button);
+    //   if (answer == questionObj.correct) {
+    //       console.log("correct");
+    //   button.style.backgroundColor = "green";
+    //   button.addEventListener("click", correctButton());
+    //   }
+    // if (answer !== questionObj.correct) {
+    //     button.style.backgroundColor = "red";
+    //     // button.addEventListener("click", incorrectButton());
+    // }
   });
 }
 
@@ -74,8 +83,15 @@ function resetCard() {
   }
 }
 
-// function selectAnswer(event) {
-//   const selectedButton = event.target;
-// }
+function selectAnswer(event) {
+  const selectedButton = event.target;
+  console.log(selectedButton)
+  if (currentQIndex < mixQuestions.length) {
+    setNextQuestion();
+  } else { endGame() }
 
-function endGame() {}
+}
+
+function endGame() {
+alert( "Game OVER.")
+}
