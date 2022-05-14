@@ -23,6 +23,10 @@ body {
     padding: 5px;
 }
 
+#question {
+    text-align: center;
+}
+
 .btn-grid {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -57,8 +61,4 @@ body {
 
 .hide {
     display: none;
-}
-
-.score-timer {
-    align-items:flex-end;
 }
