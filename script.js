@@ -5,17 +5,19 @@ const questionContainerEl = document.getElementById("question-container");
 const questionEl = document.getElementById("question");
 const answerbtnsEl = document.getElementById("answer-buttons");
 
-var timerText = document.querySelector(".timer-text");
+var timerText = document.getElementById("timer-text");
 var timer = 0;
-var scoreText = document.querySelector(".score-text");
+
+const gameOverContainer = document.getElementById("end-container");
+const userInitials = document.getElementById("user");
+var finalScore = document.getElementById("final-score");
 var score = 0;
 
 let mixQuestions
 let currentQIndex = 0
 
+
 startButton.addEventListener("click", startGame);
-
-
 
 function startTimer() {
   console.log("testing timer");
@@ -47,7 +49,6 @@ function setNextQuestion() {
   console.log(currentQIndex)
   showQuestion(mixQuestions[currentQIndex]);
     currentQIndex++;
-
 }
 
 function showQuestion(questionObj) {
@@ -59,22 +60,22 @@ function showQuestion(questionObj) {
     button.classList.add("btn");
     button.addEventListener("click", selectAnswer);
     answerbtnsEl.appendChild(button);
-    //   if (answer == questionObj.correct) {
-    //       console.log("correct");
-    //   button.style.backgroundColor = "green";
-    //   button.addEventListener("click", correctButton());
-    //   }
+      // if (answer == questionObj.correct) {
+      //     console.log("correct");
+      // button.style.backgroundColor = "green";
+      // button.addEventListener("click", correctButton());
+      // }
     // if (answer !== questionObj.correct) {
     //     button.style.backgroundColor = "red";
-    //     // button.addEventListener("click", incorrectButton());
+    //     button.addEventListener("click", incorrectButton());
     // }
   });
 }
 
-function correctButton() {
-  score++;
-  console.log(score);
-}
+// function correctButton() {
+//   score++;
+//   console.log(score);
+// }
 
 function resetCard() {
   nextButton.classList.add("hide");
@@ -93,5 +94,9 @@ function selectAnswer(event) {
 }
 
 function endGame() {
-alert( "Game OVER.")
+  alert("Game OVER.");
+  questionEl.classList.add("hide");
+  answerbtnsEl.classList.add("hide");
+  gameOverContainer.classList.remove("hide");
+
 }

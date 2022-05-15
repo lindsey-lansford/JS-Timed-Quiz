@@ -8,12 +8,10 @@
     <title>JavaScript Timed Quiz</title>
 </head>
 <body>
+
 <div class="container">
     <div class="timer">
-        <p class="timer-text"></p>
-    </div>
-    <div class="score">
-        <p class="score-text"></p>
+        <p id="timer-text"></p>
     </div>
     <div id="question-container" class="hide">
     <div id="question">Question</div>
@@ -25,10 +23,22 @@
     </div>
   </div>
   <div class="controls">
-    <button id="start-btn" class="start-btn btn">Start</button>
+    <p>This game </p>
+    <button id="start-btn" class="start-btn btn">Start Quiz</button>
     <button id="next-btn" class="next-btn btn hide">Next</button>
   </div>
+  <div id="end-container" class="hide">
+  <h2>Thanks for Playing!</h2>
+    <p>Your final score from that round is <span id="final-score"></span>.</p>
+    <p>Enter your initials to save your score.</p>
+      <form>
+          <label for="user">Initials:</label>
+          <input type="text" id="user" maxlength="3" size="5">
+          <input type="submit" id="submit">
+      </form>
+    </div>
 </div>
+
 
 <script src="questions.js"></script>
 <script src="script.js"></script>
