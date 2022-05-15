@@ -64,22 +64,9 @@ function showQuestion(questionObj) {
     button.classList.add("btn");
     button.addEventListener("click", selectAnswer);
     answerbtnsEl.appendChild(button);
-      // if (answer == questionObj.correct) {
-      //     console.log("correct");
-      // button.style.backgroundColor = "green";
-      // button.addEventListener("click", correctButton());
-      // }
-    // if (answer !== questionObj.correct) {
-    //     button.style.backgroundColor = "red";
-    //     button.addEventListener("click", incorrectButton());
-    // }
   });
 }
 
-// function correctButton() {
-//   score++;
-//   console.log(score);
-// }
 
 function resetCard() {
   nextButton.classList.add("hide");
