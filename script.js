@@ -14,11 +14,13 @@ const userInitials = document.getElementById("user");
 var finalScore = document.getElementById("final-score");
 var score = 0;
 
+
 let mixQuestions
 let currentQIndex = 0
 
 
 startButton.addEventListener("click", startGame);
+
 
 function startTimer() {
   console.log("testing timer");

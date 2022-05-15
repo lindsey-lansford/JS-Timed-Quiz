@@ -15,7 +15,7 @@ This application runs in a browser and features a timed quiz with dynamically up
 
 The following screenshot shows the web application's appearance as the user is about to start the quiz:
 
-![](./screenshot.png)
+![](./assets/screenshot.png)
 
 
-To view this web application, [click here](https://).
+To view this web application, [click here](https://lindsey-lansford.github.io/JS-Timed-Quiz/).
