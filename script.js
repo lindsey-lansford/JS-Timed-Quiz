@@ -1,6 +1,7 @@
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
 const questionContainerEl = document.getElementById("question-container");
+const quizInstruction = document.getElementById("instructions");
 
 const questionEl = document.getElementById("question");
 const answerbtnsEl = document.getElementById("answer-buttons");
@@ -38,6 +39,7 @@ function startGame() {
   timerText.innerHTML = timer;
 console.log("started");
 startButton.classList.add("hide");
+quizInstruction.classList.add("hide");
   mixQuestions = questions;
 console.log(mixQuestions);
 questionContainerEl.classList.remove("hide");

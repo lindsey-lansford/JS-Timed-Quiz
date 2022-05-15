@@ -1,9 +1,10 @@
 ## JavaScript Timed Quiz
+Timed Multiple Choice Quiz using JavaScript
 
-This web application's purpose is to guide the user through a variety multiple choice questions, while being timed, and will keep score depending on your answer selection. At the end of the game, it will save your score and submited initials.
 
 ### How it Works
-This application runs in a browser that features dynamically updated HTML and CSS powered by Javascript that will guide the user through a timed quiz and generate a score.
+
+This application runs in a browser and features a timed quiz with dynamically updated HTML and CSS code powered by Javascript. It presents the user with 4 multiple choice questions while recording how long it takes to complete the quiz. If the user selects the wrong answer, the timer deducts 10 seconds. At the end of the game, the user will submit their initials to record their score. 
 
 
 
